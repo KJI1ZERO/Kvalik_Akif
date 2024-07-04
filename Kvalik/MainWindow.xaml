@@ -1,0 +1,45 @@
+﻿<Window x:Class="Kvalik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kvalik"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" >
+            <StackPanel Margin="0 10" HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBox Margin="0 0 10 0" Width="150" x:Name="SearchTb"></TextBox>
+                <ComboBox Margin="10 0" Width="150" x:Name="SortCb"></ComboBox>
+                <ComboBox Margin="10 0" Width="150" x:Name="FiltherCb"></ComboBox>
+            </StackPanel>
+            <StackPanel Width="600" >
+                <ListView  Width="600"  HorizontalAlignment="Center" Height="301" d:ItemsSource="{d:SampleData}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="1"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel   Margin="0 5" Orientation="Horizontal">
+                                <Image Width="80" Source="/Photos/picture.png" ></Image>
+                                <StackPanel Width="350" Orientation="Vertical">
+                                    <TextBlock x:Name="NameProdTb" Margin="15 0 0 0" FontWeight="DemiBold" FontSize="15"> Тип продукта | Наименование продукта</TextBlock>
+                                    <TextBlock Margin="15  0 0 0" FontSize="12"  x:Name="ArtTb">Арктикул</TextBlock>
+                                    <TextBlock TextWrapping="Wrap" Margin="15 0 0 0" FontSize="12">Материалы: материал_1, материал_2, материал_3...материал_N</TextBlock>
+                                </StackPanel>
+                                <StackPanel Margin="40 0 0 0" Orientation="Vertical">
+                                    <TextBlock >Стоимость</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" x:Name="CostTb">0 р</TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
